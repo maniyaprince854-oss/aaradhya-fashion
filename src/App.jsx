@@ -401,9 +401,9 @@ function ClientsV({clients,forms,addClient,updClient,delClient,T,D,newForm,toast
     <div className="su">
       {/* Search bar */}
       <div style={{padding:"10px 14px",display:"flex",gap:10,background:T.bg,position:"sticky",top:0,zIndex:10,borderBottom:`1px solid ${T.b1}`}}>
-        <div style={{flex:1,display:"flex",alignItems:"center",gap:8,background:T.s1,border:`1px solid ${T.b2}`,borderRadius:6,padding:"0 13px",height:46,transition:"border-color .15s"}}>
+        <div style={{flex:1,minWidth:0,display:"flex",alignItems:"center",gap:8,background:T.s1,border:`1px solid ${T.b2}`,borderRadius:6,padding:"0 13px",height:46,transition:"border-color .15s"}}>
           <Search size={14} color={T.t3} strokeWidth={1.6}/>
-          <input style={{flex:1,background:"transparent",border:"none",color:T.t1,fontSize:14,padding:0}} placeholder="Search clients…" value={q} onChange={e=>setQ(e.target.value)}/>
+          <input style={{flex:1,minWidth:0,background:"transparent",border:"none",color:T.t1,fontSize:14,padding:0}} placeholder="Search clients…" value={q} onChange={e=>setQ(e.target.value)}/>
           {q&&<button onClick={()=>setQ("")} className="ghost" style={{color:T.t3,padding:2,display:"flex"}}><X size={13}/></button>}
         </div>
         <button className="pri" onClick={openAdd} style={{height:46,padding:"0 18px",borderRadius:6,fontSize:13,display:"flex",alignItems:"center",gap:7,flexShrink:0}}>
@@ -974,7 +974,7 @@ function SectionLabel({text,T}) {
 }
 
 function MR({icon:Icon,t,T}) {
-  return <div style={{display:"flex",alignItems:"center",gap:7,fontSize:12,color:T.t3}}><Icon size={11} strokeWidth={1.5} style={{flexShrink:0}}/><span style={{overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{t}</span></div>;
+  return <div style={{display:"flex",alignItems:"center",gap:7,fontSize:12,color:T.t3,minWidth:0}}><Icon size={11} strokeWidth={1.5} style={{flexShrink:0}}/><div style={{flex:1,minWidth:0,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{t}</div></div>;
 }
 
 function MItem({icon:Icon,label,onClick,T,danger}) {
