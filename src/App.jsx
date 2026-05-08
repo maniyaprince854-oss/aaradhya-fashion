@@ -101,7 +101,7 @@ const GCSS = `
   .cf{font-family:'Cormorant Garamond',serif}
   .ui{font-family:'Inter',sans-serif}
   .label{font-family:'Inter',sans-serif;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
-  @media(max-width:767px){.dsk{display:none!important}.bpad{padding-bottom:80px!important}}
+  @media(max-width:767px){.dsk{display:none!important}.bpad{padding-bottom:calc(90px + env(safe-area-inset-bottom, 0px))!important}}
   @media(min-width:768px){.mob{display:none!important}.push{margin-left:220px!important}}
   @media print{body>*{display:none!important}#afpdf{display:flex!important;position:fixed!important;inset:0!important;z-index:9999!important}#afpdf-bar{display:none!important}}
 `;
@@ -635,7 +635,7 @@ function FormV({form,settings,saveForm,setAF,T,D,toast$}) {
       </Sec>
 
       {/* Buttons */}
-      <div style={{display:"flex",gap:10,marginBottom:8}}>
+      <div style={{display:"flex",gap:10,marginBottom:"calc(30px + env(safe-area-inset-bottom,0px))"}}>
         <button className="sec-btn" onClick={()=>{saveForm(data);toast$("Saved!");}} style={{flex:1,padding:"10px",borderRadius:6,border:`1px solid ${T.b2}`,color:T.t2,fontSize:14,fontWeight:500,display:"flex",alignItems:"center",justifyContent:"center",gap:7,fontFamily:"'Inter',sans-serif"}}>
           <Save size={14}/> Save
         </button>
